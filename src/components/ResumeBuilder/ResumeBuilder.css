@@ -1,0 +1,20 @@
+.d-flex {
+    height: 100vh; /* Full viewport height */
+}
+
+.resume-builder-container {
+    flex: 6; /* Adjusted for 65% width */
+    margin-left: 20px; /* Left margin */
+    margin-top: 20px; /* Top margin */
+    max-height: calc(100vh - 20px); /* Adjust height to account for top margin */
+    overflow-y: auto; /* Adds scroll to the container */
+    padding-right: 10px; /* Right spacing */
+}
+
+.preview-container {
+    flex: 4; /* Adjusted for 35% width */
+    height: calc(100vh - 20px); /* Adjust height to account for top margin */
+    overflow-y: hidden; /* Keeps the preview fixed */
+    padding-left: 10px; /* Left spacing */
+    margin-top: 20px; /* Top margin */
+}
