@@ -17,4 +17,5 @@
     overflow-y: hidden; /* Keeps the preview fixed */
     padding-left: 10px; /* Left spacing */
     margin-top: 20px; /* Top margin */
+    overflow-y: auto; /* Adds scroll to the container */
 }

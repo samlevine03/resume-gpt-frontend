@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ResumeName from './ResumeName';
 import PersonalInfo from './PersonalInfo';
 import Education from './Education';
+import Experience from './Experience';
+import ActivitiesLeadership from './ActivitiesLeadership';
 // ... import other components as needed
 import Preview from './Preview';
 import './ResumeBuilder.css';
@@ -29,8 +31,8 @@ function ResumeBuilder() {
         location: '',
         degreeType: '',
         fieldsOfStudy: [''],
-        startMonthYear: '',
-        endMonthYear: '',
+        startDate: '',
+        endDate: '',
         gpa: '',
         coursework: '',
         activities: '',
@@ -41,6 +43,25 @@ function ResumeBuilder() {
         showHonors: false,
     }]);
 
+    const [experienceList, setExperienceList] = useState([{
+        organizationName: '',
+        location: '',
+        roleTitle: '',
+        startDate: '',
+        endDate: '',
+        bullets: [''],
+    }]);
+
+    const [activityList, setActivityList] = useState([{
+        organizationName: '',
+        location: '',
+        roleTitle: '',
+        startDate: '',
+        endDate: '',
+        bullets: [''],
+    }]);
+
+
     return (
         <div className="d-flex">
             <div className="resume-builder-container">
@@ -50,11 +71,13 @@ function ResumeBuilder() {
                 <ResumeName resumeName={resumeName} setResumeName={setResumeName} />
                 <PersonalInfo personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
                 <Education educationList={educationList} setEducationList={setEducationList} />
+                <Experience experienceList={experienceList} setExperienceList={setExperienceList} />
+                <ActivitiesLeadership activityList={activityList} setActivityList={setActivityList} />
                 {/* ... add other components as needed */}
             </div>
             <div className="preview-container">
                 {/* <h1>RESUME PREVIEW</h1> */}
-                <Preview resumeName={resumeName} personalInfo={personalInfo} educationList={educationList} /* ...other props... */ />
+                <Preview resumeName={resumeName} personalInfo={personalInfo} educationList={educationList}  experienceList={experienceList} activityList={activityList}  /* ...other props... */ />
                 {/* Resume preview content */}
             </div>
         </div>

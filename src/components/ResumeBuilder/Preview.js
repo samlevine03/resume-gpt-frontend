@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Preview({ resumeName, personalInfo, educationList }) {
+function Preview({ resumeName, personalInfo, educationList, experienceList, activityList }) {
     return (
         <div className="preview-container">
             <h2>Resume: {resumeName}</h2>
@@ -28,12 +28,50 @@ function Preview({ resumeName, personalInfo, educationList }) {
                         {education.fieldsOfStudy && education.fieldsOfStudy.map((field, idx) => (
                             <p key={idx}>Field of Study {idx + 1}: {field}</p>
                         ))}
-                        <p>Start Date: {education.startMonthYear}</p>
-                        <p>End Date: {education.endMonthYear}</p>
+                        <p>Start Date: {education.startDate}</p>
+                        <p>End Date: {education.endDate}</p>
                         {education.showGPA && <p>GPA: {education.gpa}</p>}
                         {education.showCoursework && <p>Coursework: {education.coursework}</p>}
                         {education.showHonors && <p>Honors: {education.honors}</p>}
                         {education.showActivities && <p>Activities: {education.activities}</p>}
+                    </div>
+                ))}
+            </div>
+
+            {/* Experience Preview */}
+            <div>
+                <h3>Experience</h3>
+                {experienceList.map((experience, index) => (
+                    <div key={index}>
+                        <p>Organization: {experience.organizationName}</p>
+                        <p>Location: {experience.location}</p>
+                        <p>Role: {experience.roleTitle}</p>
+                        <p>Start Date: {experience.startDate}</p>
+                        <p>End Date: {experience.endDate}</p>
+                        <ul>
+                            {experience.bullets && experience.bullets.map((bullet, idx) => (
+                                <li key={idx}>Bullet {idx + 1}: {bullet}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+
+            {/* Activities & Leadership Preview */}
+            <div>
+                <h3>Activities & Leadership</h3>
+                {activityList.map((activity, index) => (
+                    <div key={index}>
+                        <p>Organization: {activity.organizationName}</p>
+                        <p>Location: {activity.location}</p>
+                        <p>Role: {activity.roleTitle}</p>
+                        <p>Start Date: {activity.startDate}</p>
+                        <p>End Date: {activity.endDate}</p>
+                        <ul>
+                            {activity.bullets && activity.bullets.map((bullet, idx) => (
+                                <li key={idx}>Bullet {idx + 1}: {bullet}</li>
+                            ))}
+                        </ul>
                     </div>
                 ))}
             </div>

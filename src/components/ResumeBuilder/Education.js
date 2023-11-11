@@ -118,8 +118,8 @@ function EducationEntry({ education, onUpdate, onRemove, isFirst }) {
                         <Col sm="4">
                             <Form.Control
                                 type="month"
-                                name="startMonthYear"
-                                value={education.startMonthYear}
+                                name="startDate"
+                                value={education.startDate}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -127,8 +127,8 @@ function EducationEntry({ education, onUpdate, onRemove, isFirst }) {
                         <Col sm="4">
                             <Form.Control
                                 type="month"
-                                name="endMonthYear"
-                                value={education.endMonthYear}
+                                name="endDate"
+                                value={education.endDate}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -227,8 +227,8 @@ function Education({ educationList, setEducationList }) {
             location: '',
             degreeType: '',
             fieldsOfStudy: [''],
-            startMonthYear: '',
-            endMonthYear: '',
+            startDate: '',
+            endDate: '',
             gpa: '',
             coursework: '',
             activities: '',
