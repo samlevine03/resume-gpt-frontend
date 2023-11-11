@@ -7,6 +7,7 @@ function EducationEntry({ id, onUpdate, onRemove, isFirst }) {
         location: '',
         degreeType: '',
         fieldOfStudy: '',
+        fieldsOfStudy: [''],
         startMonth: '',
         startYear: '',
         endMonth: '',
@@ -33,6 +34,23 @@ function EducationEntry({ id, onUpdate, onRemove, isFirst }) {
         onUpdate(id, { ...education, [field]: !education[field] });
     };
 
+    const handleFieldOfStudyChange = (index, value) => {
+        const updatedFields = [...education.fieldsOfStudy];
+        updatedFields[index] = value;
+        setEducation({ ...education, fieldsOfStudy: updatedFields });
+    };
+    
+    const addFieldOfStudy = () => {
+        setEducation(prev => ({ ...prev, fieldsOfStudy: [...prev.fieldsOfStudy, ''] }));
+    };
+    
+    const removeFieldOfStudy = (index) => {
+        setEducation(prev => ({
+            ...prev,
+            fieldsOfStudy: prev.fieldsOfStudy.filter((_, idx) => idx !== index)
+        }));
+    };
+
     return (
         <Card className="mb-3">
         <Card.Header>Education {id + 1}</Card.Header>
@@ -47,6 +65,7 @@ function EducationEntry({ id, onUpdate, onRemove, isFirst }) {
                         name="schoolName"
                         value={education.schoolName}
                         onChange={handleChange}
+                        placeholder="Enter institution name"
                     />
                 </Col>
             </Form.Group>
@@ -60,6 +79,7 @@ function EducationEntry({ id, onUpdate, onRemove, isFirst }) {
                         name="location"
                         value={education.location}
                         onChange={handleChange}
+                        placeholder="Enter institution location"
                     />
                 </Col>
             </Form.Group>
@@ -79,17 +99,30 @@ function EducationEntry({ id, onUpdate, onRemove, isFirst }) {
             </Form.Group>
 
             {/* Field of Study */}
-            <Form.Group as={Row} className="mb-2">
-                <Form.Label column sm="2">Field of Study</Form.Label>
-                <Col sm="10">
-                    <Form.Control
-                        type="text"
-                        name="fieldOfStudy"
-                        value={education.fieldOfStudy}
-                        onChange={handleChange}
-                    />
-                </Col>
-            </Form.Group>
+            {
+                education.fieldsOfStudy.map((field, index) => (
+                    <Form.Group as={Row} key={index} className="mb-2 align-items-center">
+                        <Form.Label column sm="2">Field of Study {index + 1}</Form.Label>
+                        <Col sm="8">
+                            <Form.Control
+                                type="text"
+                                value={field}
+                                onChange={(e) => handleFieldOfStudyChange(index, e.target.value)}
+                            />
+                        </Col>
+                        <Col sm="2">
+                            {index === 0 ? (
+                                <Button variant="primary" onClick={addFieldOfStudy} className="me-2">Add</Button>
+                            ) : (
+                                <Button variant="danger" onClick={() => removeFieldOfStudy(index)} className="me-2">Remove</Button>
+                            )}
+                        </Col>
+                    </Form.Group>
+                ))
+            }
+
+
+
 
             {/* Start/End Date */}
             <Form.Group as={Row} className="mb-2">

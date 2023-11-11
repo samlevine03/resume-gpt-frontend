@@ -6,6 +6,20 @@ function PersonalInfo() {
     const [showSecondEmail, setShowSecondEmail] = useState(false);
     const [showLinkedIn, setShowLinkedIn] = useState(false);
     const [showOtherURL, setShowOtherURL] = useState(false);
+    
+    const [personalInfo, setPersonalInfo] = useState({
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+        address: '',
+        secondEmail: '',
+        linkedIn: '',
+        otherURL: '',
+        showAddress: false,
+        showSecondEmail: false,
+        showLinkedIn: false,
+        showOtherURL: false,
+    });
 
     return (
         <Card className="mb-3">
