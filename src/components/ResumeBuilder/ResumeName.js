@@ -1,8 +1,7 @@
-import react, { useState } from 'react';
-import { Form, Button, Row, Col, Card } from 'react-bootstrap';
+import React from 'react';
+import { Form, Row, Col, Card } from 'react-bootstrap';
 
-function ResumeName() {
-    const [resumeName, setResumeName] = useState('');
+function ResumeName({ resumeName, setResumeName }) {
 
     const handleChange = (event) => {
         setResumeName(event.target.value);
