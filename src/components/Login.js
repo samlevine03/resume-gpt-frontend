@@ -14,7 +14,6 @@ function Login() {
     const handleGuestLogin = (event) => {
         console.log("TODO: handle guest login")
         navigate('/resume-builder');
-        // TODO: handle guest login
     };
 
     return (
