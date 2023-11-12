@@ -1,6 +1,15 @@
 import React from 'react';
 
-function Preview({ resumeName, personalInfo, educationList, experienceList, activityList, showActivities }) {
+function Preview({ 
+    resumeName, 
+    personalInfo, 
+    educationList, 
+    experienceList, 
+    activityList, 
+    showActivities,
+    projectList,
+    showProjects,
+}) {
     return (
         <div className="preview-container">
             <h2>Resume: {resumeName}</h2>
@@ -70,6 +79,25 @@ function Preview({ resumeName, personalInfo, educationList, experienceList, acti
                             <p>End Date: {activity.endDate}</p>
                             <ul>
                                 {activity.bullets && activity.bullets.map((bullet, idx) => (
+                                    <li key={idx}>{bullet}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* Projects Preview */}
+            {showProjects && (
+                <div>
+                    <h3>Projects</h3>
+                    {projectList.map((project, index) => (
+                        <div key={index}>
+                            <p>Project: {project.projectName}</p>
+                            <p>Tech Stack: {project.techStack}</p>
+                            <p>Start Date: {project.startDate}</p>
+                            <ul>
+                                {project.bullets && project.bullets.map((bullet, idx) => (
                                     <li key={idx}>{bullet}</li>
                                 ))}
                             </ul>
