@@ -52,6 +52,7 @@ function ResumeBuilder() {
         bullets: [''],
     }]);
 
+    const [showActivities, setShowActivities] = useState(true);
     const [activityList, setActivityList] = useState([{
         organizationName: '',
         location: '',
@@ -72,12 +73,26 @@ function ResumeBuilder() {
                 <PersonalInfo personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
                 <Education educationList={educationList} setEducationList={setEducationList} />
                 <Experience experienceList={experienceList} setExperienceList={setExperienceList} />
-                <ActivitiesLeadership activityList={activityList} setActivityList={setActivityList} />
+                {/* <ActivitiesLeadership activityList={activityList} setActivityList={setActivityList} /> */}
+                <ActivitiesLeadership 
+                    activityList={activityList} 
+                    setActivityList={setActivityList}
+                    showActivities={showActivities}
+                    setShowActivities={setShowActivities}
+                />
                 {/* ... add other components as needed */}
             </div>
             <div className="preview-container">
                 {/* <h1>RESUME PREVIEW</h1> */}
-                <Preview resumeName={resumeName} personalInfo={personalInfo} educationList={educationList}  experienceList={experienceList} activityList={activityList}  /* ...other props... */ />
+                <Preview 
+                    resumeName={resumeName} 
+                    personalInfo={personalInfo} 
+                    educationList={educationList}  
+                    experienceList={experienceList} 
+                    activityList={activityList}  
+                    showActivities={showActivities}
+                    /* ...other props... */ 
+                />
                 {/* Resume preview content */}
             </div>
         </div>
