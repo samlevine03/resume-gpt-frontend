@@ -36,7 +36,7 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                         onChange={(e) => onUpdateField(field.name, e.target.checked)}
                     />
                 );
-            case 'array': {
+            case 'array':
                 if (Array.isArray(entry[field.name])) {
                     return entry[field.name].map((item, index) => (
                         <Row key={index} className="mb-2 align-items-center">
@@ -58,7 +58,6 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                         </Row>
                     ));
                 }
-            }
             case 'text':
             default:
                 return (
