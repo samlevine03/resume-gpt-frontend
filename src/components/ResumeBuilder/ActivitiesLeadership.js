@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
+import { Eye, EyeSlash } from 'react-bootstrap-icons';
 
 function ActivityEntry({ activity, onUpdate, onRemove, isFirst }) {
     const handleChange = (e) => {
@@ -125,7 +126,7 @@ function ActivityEntry({ activity, onUpdate, onRemove, isFirst }) {
     );
 }
 
-function ActivitiesLeadership({ activityList, setActivityList }) {
+function ActivitiesLeadership({ activityList, setActivityList, showActivities, setShowActivities }) {
     const handleAddActivity = () => {
         setActivityList(prev => [...prev, {
             organizationName: '',
@@ -146,19 +147,29 @@ function ActivitiesLeadership({ activityList, setActivityList }) {
 
     return (
         <Card className="mb-3">
-            <Card.Header>Activities and Leadership</Card.Header>
-            <Card.Body>
-                {activityList.map((activity, index) => (
-                    <ActivityEntry
-                        key={index}
-                        activity={activity}
-                        onUpdate={(updated) => handleUpdateActivity(index, updated)}
-                        onRemove={() => handleRemoveActivity(index)}
-                        isFirst={index === 0}
-                    />
-                ))}
-                <Button onClick={handleAddActivity}>Add Another Activity/Leadership</Button>
-            </Card.Body>
+            <Card.Header>
+                <Row className="align-items-center">
+                    <Col sm="10">Activities and Leadership</Col>
+                    <Col sm="2" className="text-end">
+                        <Button variant="secondary" onClick={() => setShowActivities(!showActivities)} className="float-end">
+                            {showActivities ? <EyeSlash /> : <Eye />}
+                        </Button>
+                    </Col>
+                </Row>
+            </Card.Header>
+            {showActivities && (
+                <Card.Body>
+                    {activityList.map((activity, index) => (
+                        <ActivityEntry
+                            key={index}
+                            activity={activity}
+                            onUpdate={(updated) => handleUpdateActivity(index, updated)}
+                            onRemove={() => handleRemoveActivity(index)}
+                            isFirst={index === 0}
+                        />
+                    ))}
+                </Card.Body>
+            )}
         </Card>
     );
 }

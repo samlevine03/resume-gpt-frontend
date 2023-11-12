@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Preview({ resumeName, personalInfo, educationList, experienceList, activityList }) {
+function Preview({ resumeName, personalInfo, educationList, experienceList, activityList, showActivities }) {
     return (
         <div className="preview-container">
             <h2>Resume: {resumeName}</h2>
@@ -58,24 +58,25 @@ function Preview({ resumeName, personalInfo, educationList, experienceList, acti
             </div>
 
             {/* Activities & Leadership Preview */}
-            <div>
-                <h3>Activities & Leadership</h3>
-                {activityList.map((activity, index) => (
-                    <div key={index}>
-                        <p>Organization: {activity.organizationName}</p>
-                        <p>Location: {activity.location}</p>
-                        <p>Role: {activity.roleTitle}</p>
-                        <p>Start Date: {activity.startDate}</p>
-                        <p>End Date: {activity.endDate}</p>
-                        <ul>
-                            {activity.bullets && activity.bullets.map((bullet, idx) => (
-                                <li key={idx}>Bullet {idx + 1}: {bullet}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-            </div>
-
+            {showActivities && (
+                <div>
+                    <h3>Activities & Leadership</h3>
+                    {activityList.map((activity, index) => (
+                        <div key={index}>
+                            <p>Organization: {activity.organizationName}</p>
+                            <p>Location: {activity.location}</p>
+                            <p>Role: {activity.roleTitle}</p>
+                            <p>Start Date: {activity.startDate}</p>
+                            <p>End Date: {activity.endDate}</p>
+                            <ul>
+                                {activity.bullets && activity.bullets.map((bullet, idx) => (
+                                    <li key={idx}>Bullet {idx + 1}: {bullet}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            )}
             {/* ...other sections... */}
         </div>
     );
