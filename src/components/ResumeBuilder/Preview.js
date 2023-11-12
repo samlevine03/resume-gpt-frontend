@@ -50,7 +50,7 @@ function Preview({ resumeName, personalInfo, educationList, experienceList, acti
                         <p>End Date: {experience.endDate}</p>
                         <ul>
                             {experience.bullets && experience.bullets.map((bullet, idx) => (
-                                <li key={idx}>Bullet {idx + 1}: {bullet}</li>
+                                <li key={idx}>{bullet}</li>
                             ))}
                         </ul>
                     </div>
@@ -70,7 +70,7 @@ function Preview({ resumeName, personalInfo, educationList, experienceList, acti
                             <p>End Date: {activity.endDate}</p>
                             <ul>
                                 {activity.bullets && activity.bullets.map((bullet, idx) => (
-                                    <li key={idx}>Bullet {idx + 1}: {bullet}</li>
+                                    <li key={idx}>{bullet}</li>
                                 ))}
                             </ul>
                         </div>

@@ -130,6 +130,7 @@ function ActivitiesLeadership({ activityList, setActivityList, showActivities, s
     const handleAddActivity = () => {
         setActivityList(prev => [...prev, {
             organizationName: '',
+            location: '',
             roleTitle: '',
             startDate: '',
             endDate: '',
@@ -168,6 +169,7 @@ function ActivitiesLeadership({ activityList, setActivityList, showActivities, s
                             isFirst={index === 0}
                         />
                     ))}
+                    <Button variant="primary" onClick={handleAddActivity}>Add Another Activity</Button>
                 </Card.Body>
             )}
         </Card>
