@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { Eye, EyeSlash } from 'react-bootstrap-icons';
 
-function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, isFirst }) {
+function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, isFirst, onAddArrayField, onRemoveArrayField }) {
 
     const renderField = (field) => {
         switch (field.type) {
@@ -38,26 +38,27 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                 );
             case 'array':
                 if (Array.isArray(entry[field.name])) {
-                    return entry[field.name].map((item, index) => (
-                        <Row key={index} className="mb-2 align-items-center">
+                    return entry[field.name].map((item, arrayIndex) => (
+                        <Row key={arrayIndex} className="mb-2 align-items-center">
                             <Col sm="8">
                                 <Form.Control
                                     type="text"
                                     value={item}
-                                    onChange={(e) => onUpdateField(field.name, e.target.value, index)}
+                                    onChange={(e) => onUpdateField(field.name, e.target.value, arrayIndex)}
                                     placeholder={field.placeholder}
                                 />
                             </Col>
                             <Col sm="4">
-                                {index === 0 ? (
-                                    <Button onClick={() => onUpdateField(field.name, '', 'add')} className="me-2">Add</Button>
+                                {arrayIndex === 0 ? (
+                                    <Button onClick={() => onAddArrayField(field.name)} className="me-2">Add</Button>
                                 ) : (
-                                    <Button variant="danger" onClick={() => onUpdateField(field.name, '', 'remove', index)} className="me-2">Remove</Button>
+                                    <Button variant="danger" onClick={() => onRemoveArrayField(field.name, arrayIndex)} className="me-2">Remove</Button>
                                 )}
                             </Col>
                         </Row>
                     ));
                 }
+                break;       
             case 'text':
             default:
                 return (
