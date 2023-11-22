@@ -7,12 +7,6 @@ const useEntry = (initialEntries) => {
         setEntries([...entries, newEntry]);
     };
 
-    const updateEntry = (index, updatedEntry) => {
-        const updatedEntries = [...entries];
-        updatedEntries[index] = updatedEntry;
-        setEntries(updatedEntries);
-    };
-
     const removeEntry = (index) => {
         setEntries(entries.filter((_, i) => i !== index));
     };
@@ -50,7 +44,7 @@ const useEntry = (initialEntries) => {
     };    
     
 
-    return [entries, addEntry, updateEntry, removeEntry, updateField, toggleField, addArrayField, removeArrayField];
+    return [entries, addEntry, removeEntry, updateField, toggleField, addArrayField, removeArrayField];
 };
 
 export default useEntry;

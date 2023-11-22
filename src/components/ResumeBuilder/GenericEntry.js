@@ -10,7 +10,7 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                 return (
                     <Form.Select 
                         name={field.name} 
-                        value={entry[field.name]} 
+                        value={entry[field.name] || ''} 
                         onChange={(e) => onUpdateField(field.name, e.target.value)}>
                         <option value="">{field.defaultOption}</option>
                         {field.options.map(option => <option key={option} value={option}>{option}</option>)}
@@ -21,7 +21,7 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                     <Form.Control
                         type="month"
                         name={field.name}
-                        value={entry[field.name]}
+                        value={entry[field.name] || ''}
                         onChange={(e) => onUpdateField(field.name, e.target.value)}
                         disabled={field.conditional ? entry[field.conditional] : false}
                     />
@@ -32,7 +32,7 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                         className="mt-2" // Adds a small top margin
                         type="checkbox"
                         label={field.label}
-                        checked={entry[field.name]}
+                        checked={entry[field.name] || false}
                         onChange={(e) => onUpdateField(field.name, e.target.checked)}
                     />
                 );
@@ -43,7 +43,7 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                             <Col sm="8">
                                 <Form.Control
                                     type="text"
-                                    value={item}
+                                    value={item || ''}
                                     onChange={(e) => onUpdateField(field.name, e.target.value, arrayIndex)}
                                     placeholder={field.placeholder}
                                 />
@@ -65,7 +65,7 @@ function GenericEntry({ entry, onUpdateField, onToggleField, config, onRemove, i
                     <Form.Control
                         type="text"
                         name={field.name}
-                        value={entry[field.name]}
+                        value={entry[field.name] || ''}
                         onChange={(e) => onUpdateField(field.name, e.target.value)}
                         placeholder={field.placeholder}
                         disabled={field.toggleable && !entry[field.toggleField]}

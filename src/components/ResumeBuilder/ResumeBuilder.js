@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import ResumeName from './ResumeName';
-import Preview from './Preview';
-import GenericSection from './GenericSection';
-import './ResumeBuilder.css';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import { Button } from 'react-bootstrap';
 
+import FileSection from './FileSection';
+import GenericSection from './GenericSection';
+import ResumePDF from './ResumePDF';
+import ResumePreview from './ResumePreview';
+
+import './ResumeBuilder.css';
 import { 
     personalInfoConfig, 
     educationConfig, 
@@ -14,22 +18,54 @@ import {
 } from './sectionConfigs';
 
 function ResumeBuilder() {
-    const [resumeName, setResumeName] = useState('');
+    const [fileSection, setFileSection] = useState('');
+    const [formData, setFormData] = useState({
+        personalInfo: [personalInfoConfig.defaultEntry],
+        education: [],
+        experience: [],
+        activitiesLeadership: [],
+        projects: [],
+        skills: [skillsConfig.defaultEntry],
+    });
 
     return (
         <div className="d-flex">
             <div className="resume-builder-container">
-                <ResumeName resumeName={resumeName} setResumeName={setResumeName} />
-                <GenericSection sectionConfig={personalInfoConfig} />
-                <GenericSection sectionConfig={educationConfig} />
-                <GenericSection sectionConfig={experienceConfig} />
-                <GenericSection sectionConfig={activitiesLeadershipConfig} />
-                <GenericSection sectionConfig={projectsConfig} />
-                <GenericSection sectionConfig={skillsConfig} />
+                <FileSection fileSection={fileSection} setFileSection={setFileSection} />
+                <GenericSection
+                    sectionConfig={personalInfoConfig}
+                    sectionData={formData.personalInfo}
+                    onUpdate={(updatedData) => setFormData({ ...formData, personalInfo: updatedData })}
+                />
+                <GenericSection
+                    sectionConfig={educationConfig}
+                    sectionData={formData.education}
+                    onUpdate={(updatedData) => setFormData({ ...formData, education: updatedData })}
+                />
+                <GenericSection
+                    sectionConfig={experienceConfig}
+                    sectionData={formData.experience}
+                    onUpdate={(updatedData) => setFormData({ ...formData, experience: updatedData })}
+                />
+                <GenericSection
+                    sectionConfig={activitiesLeadershipConfig}
+                    sectionData={formData.activitiesLeadership}
+                    onUpdate={(updatedData) => setFormData({ ...formData, activitiesLeadership: updatedData })}
+                />
+                <GenericSection
+                    sectionConfig={projectsConfig}
+                    sectionData={formData.projects}
+                    onUpdate={(updatedData) => setFormData({ ...formData, projects: updatedData })}
+                />
+                <GenericSection
+                    sectionConfig={skillsConfig}
+                    sectionData={formData.skills}
+                    onUpdate={(updatedData) => setFormData({ ...formData, skills: updatedData })}
+                />
             </div>
             <div className="preview-container">
-                <h3>PREVIEW</h3>
-                {/* Resume preview content */}
+                <Button variant="warning" className="btn-sm" onClick={() => console.log(formData)}>Log Form Data</Button>
+                <ResumePreview formData={formData} />
             </div>
         </div>
     );
