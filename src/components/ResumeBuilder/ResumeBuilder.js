@@ -20,12 +20,12 @@ import {
 function ResumeBuilder() {
     const [fileSection, setFileSection] = useState('');
     const [formData, setFormData] = useState({
-        personalInfo: [{}],
+        personalInfo: [personalInfoConfig.defaultEntry],
         education: [],
         experience: [],
         activitiesLeadership: [],
         projects: [],
-        skills: [{}],
+        skills: [skillsConfig.defaultEntry],
     });
 
     return (
