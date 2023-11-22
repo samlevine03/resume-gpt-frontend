@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form, Row, Col, Card } from 'react-bootstrap';
 
-function FileName({ fileName, setFileName }) {
+function FileSection({ fileSection, setFileSection }) {
 
     const handleChange = (event) => {
-        setFileName(event.target.value);
+        setFileSection(event.target.value);
     };
 
     return (
@@ -18,7 +18,7 @@ function FileName({ fileName, setFileName }) {
                             <Form.Control 
                                 type="text" 
                                 placeholder="Enter resume name" 
-                                value={fileName}
+                                value={fileSection}
                                 onChange={handleChange} 
                             />
                         </Col>
@@ -29,4 +29,4 @@ function FileName({ fileName, setFileName }) {
     );
 }
 
-export default FileName;
+export default FileSection;
