@@ -11,7 +11,7 @@ const ResumePreview = ({ formData }) => (
       if (error) {
         return <div>Something went wrong while loading the PDF!</div>;
       }
-      return <iframe src={url} style={{ width: '100%', height: '500px' }} />;
+      return <iframe src={url} style={{ width: '100%', height: '100%' }} />;
     }}
   </BlobProvider>
 );

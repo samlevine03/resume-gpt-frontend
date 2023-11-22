@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
+import { Button } from 'react-bootstrap';
 
 import FileSection from './FileSection';
 import GenericSection from './GenericSection';
@@ -63,16 +64,7 @@ function ResumeBuilder() {
                 />
             </div>
             <div className="preview-container">
-                <h3>PREVIEW</h3>
-                <button onClick={() => console.log(formData)}>Log Form Data</button>
-                {/* Resume preview content */}
-                <PDFDownloadLink
-                    document={<ResumePDF formData={formData} />}
-                    fileName="resume.pdf">
-                    {({ blob, url, loading, error }) =>
-                        loading ? 'Loading document...' : 'Download PDF'
-                    }
-                </PDFDownloadLink>
+                <Button variant="warning" className="btn-sm" onClick={() => console.log(formData)}>Log Form Data</Button>
                 <ResumePreview formData={formData} />
             </div>
         </div>
