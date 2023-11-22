@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form, Row, Col, Card } from 'react-bootstrap';
 
-function ResumeName({ resumeName, setResumeName }) {
+function FileName({ fileName, setFileName }) {
 
     const handleChange = (event) => {
-        setResumeName(event.target.value);
+        setFileName(event.target.value);
     };
 
     return (
@@ -18,7 +18,7 @@ function ResumeName({ resumeName, setResumeName }) {
                             <Form.Control 
                                 type="text" 
                                 placeholder="Enter resume name" 
-                                value={resumeName}
+                                value={fileName}
                                 onChange={handleChange} 
                             />
                         </Col>
@@ -29,4 +29,4 @@ function ResumeName({ resumeName, setResumeName }) {
     );
 }
 
-export default ResumeName;
+export default FileName;

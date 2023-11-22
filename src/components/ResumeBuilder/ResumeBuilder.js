@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import ResumeName from './ResumeName';
-import Preview from './Preview';
+import FileSection from './FileSection';
 import GenericSection from './GenericSection';
 import './ResumeBuilder.css';
 
@@ -14,12 +13,12 @@ import {
 } from './sectionConfigs';
 
 function ResumeBuilder() {
-    const [resumeName, setResumeName] = useState('');
+    const [fileSection, setFileSection] = useState('');
 
     return (
         <div className="d-flex">
             <div className="resume-builder-container">
-                <ResumeName resumeName={resumeName} setResumeName={setResumeName} />
+                <FileSection fileSection={fileSection} setFileSection={setFileSection} />
                 <GenericSection sectionConfig={personalInfoConfig} />
                 <GenericSection sectionConfig={educationConfig} />
                 <GenericSection sectionConfig={experienceConfig} />
