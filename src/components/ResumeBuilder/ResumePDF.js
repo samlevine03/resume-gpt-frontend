@@ -1,11 +1,10 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
-// Create styles
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
-    backgroundColor: '#E4E4E4'
+    backgroundColor: 'white'
   },
   section: {
     margin: 10,
@@ -14,7 +13,6 @@ const styles = StyleSheet.create({
   }
 });
 
-// Create Document Component
 const ResumePDF = ({ formData }) => (
   <Document>
     <Page size="A4" style={styles.page}>
