@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
     page: {
       flexDirection: 'column',
       backgroundColor: 'white',
-      paddingTop: 30, // Increased top margin
+      paddingTop: 50, // Increased top margin
     },
     headerContainer: {
       textAlign: 'center',

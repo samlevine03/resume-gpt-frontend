@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { Button } from 'react-bootstrap';
+import _ from 'lodash';
 
 import FileSection from './FileSection';
 import GenericSection from './GenericSection';
@@ -27,6 +28,17 @@ function ResumeBuilder() {
         projects: [],
         skills: [skillsConfig.defaultEntry],
     });
+
+    const [debouncedData, setDebouncedData] = useState(formData);
+    useEffect(() => {
+        const handler = setTimeout(() => {
+        setDebouncedData(formData);
+        }, 500); // 500ms delay
+
+        return () => {
+        clearTimeout(handler);
+        };
+    }, [formData]);
 
     return (
         <div className="d-flex">
@@ -65,7 +77,7 @@ function ResumeBuilder() {
             </div>
             <div className="preview-container">
                 <Button variant="warning" className="btn-sm" onClick={() => console.log(formData)}>Log Form Data</Button>
-                <ResumePreview formData={formData} />
+                <ResumePreview formData={debouncedData} />
             </div>
         </div>
     );
