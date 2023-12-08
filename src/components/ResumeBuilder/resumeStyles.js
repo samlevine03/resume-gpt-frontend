@@ -31,4 +31,25 @@ export const styles = StyleSheet.create({
       padding: 10,
       flexGrow: 1,
     },
+
+
+    educationHeader: {
+      fontSize: 11,
+      fontFamily: 'Tinos',
+      fontWeight: 'bold',
+      textDecoration: 'underline',
+      marginBottom: 3,
+    },
+    educationSection: {
+      marginTop: 10,
+    },
+    schoolName: {
+      fontSize: 11,
+      fontFamily: 'Tinos',
+      fontWeight: 'bold',
+    },
+    educationDetails: {
+      fontSize: 10,
+      fontFamily: 'Tinos',
+    },
 });

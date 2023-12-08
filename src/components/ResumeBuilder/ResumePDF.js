@@ -20,6 +20,7 @@ const ResumePDF = ({ formData }) => {
     personalInfo.showLinkedIn ? personalInfo.linkedIn : null,
     personalInfo.showOtherURL ? personalInfo.otherURL : null,
   ].filter(Boolean).join(' | ');
+  const education = formData.education[0] || [];
 
   return (
     <Document>
@@ -30,6 +31,18 @@ const ResumePDF = ({ formData }) => {
           <Text style={styles.contactInfo}>{contactItems}</Text>
         </View>
         {/* The rest of the resume sections will go here */}
+        
+        
+        {/* <View style={styles.educationSection}>
+          <Text style={styles.educationHeader}>EDUCATION</Text>
+          <Text style={styles.schoolName}>{education.schoolName}</Text>
+          <Text style={styles.educationDetails}>
+            {education.degree} | {education.major} | {education.graduationDate}
+          </Text>
+        </View> */}
+
+
+
         <View style={styles.section}>
           {/* Add content for other sections like education, experience etc. */}
         </View>

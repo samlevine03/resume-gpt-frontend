@@ -77,6 +77,7 @@ function ResumeBuilder() {
             </div>
             <div className="preview-container">
                 <Button variant="warning" className="btn-sm" onClick={() => console.log(formData)}>Log Form Data</Button>
+                <Button variant="info" className="btn-sm" >Load Test Info</Button>
                 <ResumePreview formData={debouncedData} />
             </div>
         </div>

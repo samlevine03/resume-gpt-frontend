@@ -1,11 +1,15 @@
 import { useState } from 'react';
+import _ from 'lodash';
 
 const useEntry = (initialEntries) => {
     const [entries, setEntries] = useState(initialEntries);
 
     const addEntry = (newEntry) => {
-        setEntries([...entries, newEntry]);
+        // Use lodash's cloneDeep to ensure a new reference is created for the new entry
+        const uniqueEntry = _.cloneDeep(newEntry);
+        setEntries([...entries, uniqueEntry]);
     };
+    
 
     const removeEntry = (index) => {
         setEntries(entries.filter((_, i) => i !== index));
@@ -29,6 +33,7 @@ const useEntry = (initialEntries) => {
             return entry;
         });
         setEntries(newEntries);
+        updateField(index, fieldName, !entries[index][fieldName]);
     };
 
     const addArrayField = (index, fieldName) => {
