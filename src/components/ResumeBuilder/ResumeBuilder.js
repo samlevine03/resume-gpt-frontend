@@ -60,8 +60,8 @@ function ResumeBuilder() {
                 location: 'Chicago, IL',
                 degreeType: 'Bachelors',
                 fieldsOfStudy: ['Computer Science', 'Economics'],
-                startDate: '09-2021',
-                endDate: '06-2025',
+                startDate: 'September 2021',
+                endDate: 'June 2025',
                 currentlyWorking: false,
                 gpa: '3.81',
                 coursework: 'Data Structures, Theory of Algorithms, Computer Architecture, Functional Programming, Machine Learning, Operating Systems, Discrete Mathematics, Linear Algebra, Multivariable Calculus',
@@ -76,8 +76,8 @@ function ResumeBuilder() {
                 organizationName: 'Sixfold',
                 location: 'New York, NY',
                 roleTitle: 'Software Engineering Intern',
-                startDate: '06-2023',
-                endDate: '08-2023',
+                startDate: 'June 2023',
+                endDate: 'August 2023',
                 currentlyWorking: false,
                 bullets: [
                     'Built a tool with Pinecone and Langchain for querying financial documents in 4 languages, achieving ~1s per query.',
@@ -91,8 +91,8 @@ function ResumeBuilder() {
                 organizationName: 'Kona AI',
                 location: '(Remote) Austin, TX',
                 roleTitle: 'Business Development Intern',
-                startDate: '06-2022',
-                endDate: '08-2022',
+                startDate: 'June 2022',
+                endDate: 'August 2022',
                 currentlyWorking: false,
                 bullets: [
                     'Used ZoomInfo and HubSpot for targeted lead generation, identifying priority customers to fuel sales growth.',
@@ -102,8 +102,8 @@ function ResumeBuilder() {
                 organizationName: 'Create Venture Studio',
                 location: '(Remote) New York, NY',
                 roleTitle: 'Venture Intern',
-                startDate: '05-2021',
-                endDate: '06-2021',
+                startDate: 'May 2021',
+                endDate: 'June 2021',
                 currentlyWorking: false,
                 bullets: [
                     'Evaluated business models and enriched the diligence funnel through active participation in Create’s ideation events.',
@@ -113,8 +113,8 @@ function ResumeBuilder() {
                 organizationName: 'Unqork',
                 location: '(Remote) New York, NY',
                 roleTitle: 'Production Engineering Intern',
-                startDate: '06-2020',
-                endDate: '08-2020',
+                startDate: 'June 2020',
+                endDate: 'August 2020',
                 currentlyWorking: false,
                 bullets: [
                     'Developed visual, data-driven metrics to analyze the Production Support Engineering team’s efficiency and success, including customer satisfaction and response-time dashboards.',
@@ -124,7 +124,7 @@ function ResumeBuilder() {
             projects: [{
                 projectName: 'Instruction-Level ARMv8 Simulator',
                 techStack: 'C',
-                date: '04-2023',
+                date: 'April 2023',
                 bullets: [
                     'Developed an ARMv8 simulator with a five-stage pipeline, stalling, data forwarding, branching, and branch prediction for a subset of 30 ARM instructions.',
                     'Optimized memory access and system performance by integrating caching functionality into the program.',
@@ -132,14 +132,14 @@ function ResumeBuilder() {
             }, {
                 projectName: 'Pomodoro Time Management Tool ',
                 techStack: 'React, TypeScript, CSS',
-                date: '07-2023',
+                date: 'July 2023',
                 bullets: [
                     'Used React to build a time management application based off the Pomodoro method.',
                 ],
             }, {
                 projectName: 'Quail.ai',
                 techStack: 'The Mark: Project Leader',
-                date: '03-2023',
+                date: 'March 2023',
                 bullets: [
                     'Led weekly UX design meetings, guiding the development of a website UX map and 3 homepage wireframe options. ',
                 ],
