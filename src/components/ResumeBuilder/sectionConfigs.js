@@ -65,9 +65,6 @@ export const educationConfig = {
             { name: 'fieldsOfStudy', type: 'array', label: 'Field of Study', placeholder: 'Enter field of study' },
             { name: 'startDate', type: 'month', label: 'Start Date' },
             { name: 'endDate', type: 'month', label: 'End Date'},
-            // this is for experience. was just testing here
-            // { name: 'endDate', type: 'month', label: 'End Date', conditional: 'currentlyWorking' },
-            // { name: 'currentlyWorking', type: 'checkbox', label: 'I currently work here' },
             {
                 name: 'gpa',
                 type: 'text',

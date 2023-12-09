@@ -1,4 +1,3 @@
-import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
 import { styles } from './resumeStyles';
 
@@ -21,6 +20,8 @@ const ResumePDF = ({ formData }) => {
     personalInfo.showLinkedIn ? personalInfo.linkedIn : null,
     personalInfo.showOtherURL ? personalInfo.otherURL : null,
   ].filter(Boolean).join(' | ');
+  const education = formData.education[0] || [];
+  const educationEntries = Array.isArray(formData.education) ? formData.education : [];
 
   return (
     <Document>
@@ -30,10 +31,54 @@ const ResumePDF = ({ formData }) => {
           <Text style={styles.address}>{personalInfo.showAddress ? personalInfo.address : ''}</Text>
           <Text style={styles.contactInfo}>{contactItems}</Text>
         </View>
-        {/* The rest of the resume sections will go here */}
-        <View style={styles.section}>
-          {/* Add content for other sections like education, experience etc. */}
-        </View>
+
+        {education.length !== 0 && (
+          <View style={styles.educationSection}>
+          <View style={styles.educationHeaderContainer}>
+            <Text style={styles.educationHeader}>EDUCATION</Text>
+          </View>
+          <View style={styles.underline} />
+          {educationEntries.map((edu, index) => (
+            <View key={index}>
+              put school name and location in the same view
+              <View style={styles.educationLineOne}>
+                <Text style={styles.schoolName}>{edu.schoolName}</Text>
+                <Text style={styles.schoolLocation}>{edu.location}</Text>
+              </View>
+              <View style={styles.educationLineTwo}>
+                <Text style={styles.degreeType}>{edu.degreeType} in {edu.fieldsOfStudy.join(', ')}</Text>
+                <Text style={styles.endDate}>Expected, {edu.endDate}</Text>
+              </View>
+              <Text style={styles.gpa}>{education.showGPA ? "GPA: " + education.gpa : ''}</Text>
+              {edu.showActivities && (
+                <View style={styles.activitiesContainer}>
+                  <Text style={styles.activitiesLabel}>Activities:</Text>
+                  <Text style={styles.activitiesContent}>{edu.activities}</Text>
+                </View>
+              )}
+              {edu.showCoursework && (
+                <View style={styles.activitiesContainer}>
+                  <Text style={styles.activitiesLabel}>Coursework:</Text>
+                  <Text style={styles.activitiesContent}>{edu.coursework}</Text>
+                </View>
+              )}
+              {edu.showHonors && (
+                <View style={styles.activitiesContainer}>
+                  <Text style={styles.activitiesLabel}>Honors:</Text>
+                  <Text style={styles.activitiesContent}>{edu.honors}</Text>
+                </View>
+              )}
+
+
+              {/* <Text style={styles.coursework}>{education.showCoursework ? "Coursework: " + education.coursework : ''}</Text> */}
+              {/* <Text style={styles.honors}>{education.showHonors ? "Honors: " + education.honors : ''}</Text> */}
+            </View>
+          ))}
+          </View>
+        )}
+
+
+
       </Page>
     </Document>
   );
